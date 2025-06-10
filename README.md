@@ -1,8 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TailLeaf - Tailwind CSS Gradient & Grid Generator
+
+A modern web application for generating beautiful gradients and grid patterns using Tailwind CSS. Built with Next.js and featuring a sleek dark theme UI with interactive animations.
+
+## Features
+
+- 🎨 Generate custom Tailwind CSS gradients
+- 📏 Create responsive grid patterns 
+- 🚀 Built with Next.js 14 
+
+## Tech Stack
+
+- Next.js 14
+- React
+- Tailwind CSS  
+- Shadcn UI
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/tailleaf.git
+cd tailleaf
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
@@ -10,27 +42,49 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+tailleaf/
+├── src/
+│   ├── app/              # Next.js app directory
+│   ├── components/       # React components
+│   ├── lib/             # Utility functions
+├── public/              # Static assets
+└── package.json         # Project dependencies
+```
 
-## Learn More
+## Features in Detail
 
-To learn more about Next.js, take a look at the following resources:
+### Gradient Generator
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Custom color selection
+- Multiple gradient types
+- Real-time preview
+- Copy to clipboard functionality
+- Tailwind CSS class generation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Grid Generator
 
-## Deploy on Vercel
+- Customizable grid patterns
+- Responsive layouts
+- Export options
+- Tailwind CSS integration
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [Next.js](https://nextjs.org)
+- [Tailwind CSS](https://tailwindcss.com) 
+- [Shadcn UI](https://ui.shadcn.com)
