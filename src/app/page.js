@@ -6,7 +6,7 @@ import Link from "next/link";
 import SplitText from "@/components/SplitText";
 import Threads from "@/components/Threads";
 import SpotlightCard from "@/components/SpotlightCard";
-
+import GradientGenerator from "./gradients/GradientGenerator";
 const gradients = [
   {
     title: "Generate Gradient",
@@ -58,9 +58,12 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black  via-black to-black ">
+    <div className="min-h-screen  ">
       <Navbar />
-      <div className="container mx-auto relative">
+      <div>
+        <GradientGenerator />
+      </div>
+      {/* <div className="container mx-auto relative">
         <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full">
           <div
             style={{
@@ -124,15 +127,13 @@ export default function Home() {
                   <h3 className="text-md font-semibold text-gray-200 mb-2 group-hover:text-emerald-400 transition-colors duration-300">
                     {gradient.title}
                   </h3>
-                  {/* <p className="text-sm text-gray-400">
-                    {gradient.description}
-                  </p> */}
+             
                 </div>
               </SpotlightCard>
             </Link>
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

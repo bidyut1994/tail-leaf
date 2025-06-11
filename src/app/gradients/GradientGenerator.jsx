@@ -8,6 +8,7 @@ import {
   SelectContent,
   SelectItem,
   SelectValue,
+  To,
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 
@@ -23,7 +24,11 @@ const directions = [
 ];
 
 function getRandomColor() {
-  return colorOptions[Math.floor(Math.random() * colorOptions.length)];
+  const list = colorOptions.map((c) => c.color);
+  if (list?.length > 0) {
+    return list[Math.floor(Math.random() * list.length)];
+  }
+  return "blue-500";
 }
 
 export default function GradientGenerator() {
@@ -67,79 +72,135 @@ export default function GradientGenerator() {
   };
 
   return (
-    <div className="min-h-screen text-white flex flex-col items-center py-8">
-      <div className="flex justify-center items-center w-full mb-8">
-        <Button
-          onClick={shuffleGradient}
-          size="xl"
-          className="cursor-pointer bg-blue-500 hover:bg-blue-600 text-white"
-        >
-          Generate Gradient
-        </Button>
-      </div>
-      <div className={`rounded-xl p-6 w-full max-w-5xl`}>
-        <div className="flex flex-wrap  gap-4 items-center mb-6   ">
-          <div className="flex items-center text-stone-600 gap-2 mt-3 mr-7">
-            <span>Add Via Color</span>
-            <Switch checked={useVia} onCheckedChange={setUseVia} />
-          </div>
-          <div className="flex flex-col  ">
-            <label className="text-xs text-stone-600">Direction</label>
-            <Select value={direction} onValueChange={setDirection}>
-              <SelectTrigger className="w-32">
-                {directions.find((d) => d.value === direction)?.label}
-              </SelectTrigger>
-              <SelectContent>
-                {directions.map((d) => (
-                  <SelectItem key={d.value} value={d.value}>
-                    {d.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="flex flex-col ">
-            <label className="text-xs text-stone-600">From Color</label>
-            <Select value={from} onValueChange={setFrom}>
-              <SelectTrigger className="w-32">from-{from}</SelectTrigger>
-              <SelectContent>
-                {colorOptions.map((c) => (
-                  <SelectItem key={c} value={c}>
-                    from-{c}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          {useVia && (
+    <div className="min-h-screen  flex flex-col items-center py-8">
+      {/* <div className="flex justify-center items-center w-full mb-8">
+      
+      </div> */}{" "}
+      <div className="rounded-xl p-6 w-full max-w-5xl">
+        <p className=" text-2xl font-bold mt-20 mb-5 text-emerald-600">
+          Generate Tailwind CSS Background Gradients
+        </p>
+        <div className="flex justify-between items-center border-b border-t border-zinc-200 py-3">
+          <div className="flex flex-wrap  gap-3 items-center   ">
+            <div className="flex items-center text-stone-600 gap-2 mt-3 mr-5">
+              <span className="text-sm">Add Via Color</span>
+              <Switch checked={useVia} onCheckedChange={setUseVia} />
+            </div>
             <div className="flex flex-col  ">
-              <label className="text-xs text-stone-600">Via Color</label>
-              <Select value={via} onValueChange={setVia}>
-                <SelectTrigger className="w-32">via-{via}</SelectTrigger>
+              <label className="text-xs text-stone-600">Direction</label>
+              <Select value={direction} onValueChange={setDirection}>
+                <SelectTrigger className="w-32">
+                  {directions.find((d) => d.value === direction)?.label}
+                </SelectTrigger>
                 <SelectContent>
-                  {colorOptions.map((c) => (
-                    <SelectItem key={c} value={c}>
-                      via-{c}
+                  {directions.map((d) => (
+                    <SelectItem
+                      className="cursor-pointer"
+                      key={d.value}
+                      value={d.value}
+                    >
+                      {d.label}
                     </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
-          )}
-          <div className="flex flex-col ">
-            <label className="text-xs text-stone-600">To Color</label>
-            <Select value={to} onValueChange={setTo}>
-              <SelectTrigger className="w-32">to-{to}</SelectTrigger>
-              <SelectContent>
-                {colorOptions.map((c) => (
-                  <SelectItem key={c} value={c}>
-                    to-{c}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div className="flex flex-col ">
+              <label className="text-xs text-stone-600">From Color</label>
+              <Select value={from} onValueChange={setFrom}>
+                <SelectTrigger className="w-32">from-{from}</SelectTrigger>
+                <SelectContent>
+                  {colorOptions.map((c) => (
+                    <SelectItem
+                      className="cursor-pointer"
+                      key={c?.color}
+                      value={c?.color}
+                    >
+                      <div className="flex items-center gap-2">
+                        <div
+                          className={`w-4 h-4 rounded-full`}
+                          style={{ backgroundColor: c?.code }}
+                        ></div>
+                        from-{c?.color}
+                      </div>
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            {useVia && (
+              <div className="flex flex-col  ">
+                <label className="text-xs text-stone-600">Via Color</label>
+                <Select value={via} onValueChange={setVia}>
+                  <SelectTrigger className="w-32">via-{via}</SelectTrigger>
+                  <SelectContent>
+                    {colorOptions.map((c) => (
+                      <SelectItem
+                        className="cursor-pointer"
+                        key={c?.color}
+                        value={c?.color}
+                      >
+                        <div className="flex items-center gap-2">
+                          <div
+                            className={`w-4 h-4 rounded-full`}
+                            style={{ backgroundColor: c?.code }}
+                          ></div>
+                          via-{c?.color}
+                        </div>
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            )}
+            <div className="flex flex-col ">
+              <label className="text-xs text-stone-600">To Color</label>
+              <Select value={to} onValueChange={setTo}>
+                <SelectTrigger className="w-32">to-{to}</SelectTrigger>
+                <SelectContent>
+                  {colorOptions.map((c) => (
+                    <SelectItem
+                      className="cursor-pointer"
+                      key={c?.color}
+                      value={c?.color}
+                    >
+                      <div className="flex items-center gap-2">
+                        <div
+                          className={`w-4 h-4 rounded-full`}
+                          style={{ backgroundColor: c?.code }}
+                        ></div>
+                        to-{c?.color}
+                      </div>
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>{" "}
+          </div>{" "}
+          <div className=" relative top-2">
+            <Button
+              onClick={() => shuffleGradient()}
+              className="cursor-pointer py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-md"
+              size="sm"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-arrow-clockwise"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"
+                />
+                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466" />
+              </svg>
+            </Button>
           </div>
         </div>
+
         {/* <div className="rounded-lg" style={{ minHeight: 220 }}>
           <div className={`w-full   rounded-lg ${gradientClass}`}></div>
         </div> */}
