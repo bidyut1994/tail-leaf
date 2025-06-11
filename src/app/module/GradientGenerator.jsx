@@ -81,7 +81,7 @@ export default function GradientGenerator() {
       <div className="rounded-xl p-6 w-full max-w-5xl ">
         <div className="flex gap-3 items-center mt-20 mb-5 text-emerald-600">
           <BiFullscreen size="44" />
-          <p className=" text-2xl font-bold  ">
+          <p className=" text-3xl font-bold  ">
             Generate Tailwind CSS Background Gradients
           </p>
         </div>
