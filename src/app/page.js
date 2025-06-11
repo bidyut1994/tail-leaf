@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import MenuBar from "@/components/MenuBar";
 import GradientGenerator from "./module/GradientGenerator";
 import GridGenerator from "./module/GridGenerator";
 
@@ -23,11 +22,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-black to-black">
-      <Navbar />
-      <div className="container mx-auto relative">
-        <div className="pt-18 mb-2">
-          <MenuBar activeMenu={activeMenu} handleMenuClick={handleMenuClick} />
-        </div>
+      <Navbar activeMenu={activeMenu} handleMenuClick={handleMenuClick} />
+      <div className="container mx-auto relative pt-28">
         <AnimatePresence>
           {activeMenu === "gradient" ? (
             <motion.div
