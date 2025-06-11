@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { cssColor } from "./CssColor";
-import { colorOptions } from "./colorOption";
+import { cssColor } from "./TailwindColors";
+import { colorOptions } from "./TailwindColors";
 import { BiFullscreen } from "react-icons/bi";
 import {
   Tooltip,

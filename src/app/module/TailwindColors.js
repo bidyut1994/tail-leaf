@@ -198,3 +198,11 @@ export const colorOptions = [
   { color: "rose-800", code: "#9f1239" },
   { color: "rose-900", code: "#881337" },
 ];
+
+export function cssColor(tw) {
+  const map = colorOptions.reduce((acc, option) => {
+    acc[option.color] = option.code;
+    return acc;
+  }, {});
+  return map[tw] || "#000";
+}
