@@ -29,34 +29,30 @@ const directions = [
 ];
 
 function getRandomColor() {
-  const list = colorOptions.map((c) => c.color);
-  if (list?.length > 0) {
-    return list[Math.floor(Math.random() * list.length)];
-  }
-  return "blue-500";
+  const value = colorOptions[Math.floor(Math.random() * colorOptions.length)];
+
+  return value;
 }
 
 export default function GradientGenerator() {
   const [direction, setDirection] = useState("to-r");
-  const [from, setFrom] = useState("blue-500");
-  const [via, setVia] = useState("purple-500");
-  const [to, setTo] = useState("pink-500");
+  const [from, setFrom] = useState({ color: "blue-500", code: "#3b82f6" });
+  const [via, setVia] = useState({ color: "purple-500", code: "#a855f7" });
+  const [to, setTo] = useState({ color: "pink-500", code: "#ec4899" });
   const [useVia, setUseVia] = useState(true);
   const [tailwindCopied, setTailwindCopied] = useState(false);
   const [cssCopied, setCssCopied] = useState(false);
 
-  const gradientClass = `bg-gradient-to-${direction.replace(
-    "to-",
-    ""
-  )} from-${from} ${useVia ? `via-${via}` : ""} to-${to}`.trim();
-  const tailwindClass = `bg-gradient-to-${direction.replace(
-    "to-",
-    ""
-  )} from-${from}${useVia ? ` via-${via}` : ""} to-${to}`;
+  const gradientClass = `bg-gradient-to-${direction.replace("to-", "")} from-${
+    from?.color
+  } ${useVia ? `via-${via?.color}` : ""} to-${to?.color}`;
+  const tailwindClass = `bg-gradient-to-${direction.replace("to-", "")} from-${
+    from?.color
+  }${useVia ? ` via-${via?.color}` : ""} to-${to?.color}`;
 
   const cssGradient = `linear-gradient(${directionToCss(direction)}, ${cssColor(
-    from
-  )}${useVia ? `, ${cssColor(via)}` : ""}, ${cssColor(to)})`;
+    from?.color
+  )}${useVia ? `, ${cssColor(via?.color)}` : ""}, ${cssColor(to?.color)})`;
 
   function shuffleGradient() {
     setFrom(getRandomColor());
@@ -75,6 +71,8 @@ export default function GradientGenerator() {
     setCssCopied(true);
     setTimeout(() => setCssCopied(false), 2000);
   };
+
+  console.log(from, via, to);
 
   return (
     <div className="min-h-screen  flex flex-col items-center pt-8 pb-24   bg-[#222222]">
@@ -113,9 +111,23 @@ export default function GradientGenerator() {
             </div>
             <div className="flex flex-col ">
               <label className="text-xs text-white">From Color</label>
-              <Select value={from} onValueChange={setFrom}>
+              <Select
+                value={from?.color}
+                onValueChange={(value) => {
+                  const selectedColor = colorOptions.find(
+                    (c) => c.color === value
+                  );
+                  setFrom(selectedColor);
+                }}
+              >
                 <SelectTrigger className="w-32 text-white">
-                  from-{from}
+                  <div className="flex items-center gap-2">
+                    <div
+                      className={`w-4 h-4 rounded-full relative top-[1.5px]`}
+                      style={{ backgroundColor: from?.code }}
+                    ></div>
+                    from-{from?.color}
+                  </div>
                 </SelectTrigger>
                 <SelectContent>
                   {colorOptions.map((c) => (
@@ -126,7 +138,7 @@ export default function GradientGenerator() {
                     >
                       <div className="flex items-center gap-2">
                         <div
-                          className={`w-4 h-4 rounded-full`}
+                          className={`w-4 h-4 rounded-full relative top-[1.5px]`}
                           style={{ backgroundColor: c?.code }}
                         ></div>
                         from-{c?.color}
@@ -139,9 +151,23 @@ export default function GradientGenerator() {
             {useVia && (
               <div className="flex flex-col  ">
                 <label className="text-xs text-white">Via Color</label>
-                <Select value={via} onValueChange={setVia}>
+                <Select
+                  value={via?.color}
+                  onValueChange={(value) => {
+                    const selectedColor = colorOptions.find(
+                      (c) => c.color === value
+                    );
+                    setVia(selectedColor);
+                  }}
+                >
                   <SelectTrigger className="w-32 text-white">
-                    via-{via}
+                    <div className="flex items-center gap-2">
+                      <div
+                        className={`w-4 h-4 rounded-full relative top-[1.5px]`}
+                        style={{ backgroundColor: via?.code }}
+                      ></div>
+                      via-{via?.color}
+                    </div>
                   </SelectTrigger>
                   <SelectContent>
                     {colorOptions.map((c) => (
@@ -152,7 +178,7 @@ export default function GradientGenerator() {
                       >
                         <div className="flex items-center gap-2">
                           <div
-                            className={`w-4 h-4 rounded-full`}
+                            className={`w-4 h-4 rounded-full relative top-[1.5px]`}
                             style={{ backgroundColor: c?.code }}
                           ></div>
                           via-{c?.color}
@@ -165,9 +191,23 @@ export default function GradientGenerator() {
             )}
             <div className="flex flex-col ">
               <label className="text-xs text-white">To Color</label>
-              <Select value={to} onValueChange={setTo}>
+              <Select
+                value={to?.color}
+                onValueChange={(value) => {
+                  const selectedColor = colorOptions.find(
+                    (c) => c.color === value
+                  );
+                  setTo(selectedColor);
+                }}
+              >
                 <SelectTrigger className="w-32 text-white">
-                  to-{to}
+                  <div className="flex items-center gap-2">
+                    <div
+                      className={`w-4 h-4 rounded-full relative top-[1.5px]`}
+                      style={{ backgroundColor: to?.code }}
+                    ></div>
+                    to-{to?.color}
+                  </div>
                 </SelectTrigger>
                 <SelectContent>
                   {colorOptions.map((c) => (
