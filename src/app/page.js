@@ -3,10 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
-import SplitText from "@/components/SplitText";
-import Threads from "@/components/Threads";
-import SpotlightCard from "@/components/SpotlightCard";
-import GradientGenerator from "./gradients/GradientGenerator";
+import GradientGenerator from "./module/GradientGenerator";
 const gradients = [
   {
     title: "Generate Gradient",
@@ -53,10 +50,6 @@ const gradients = [
 ];
 
 export default function Home() {
-  const handleAnimationComplete = () => {
-    console.log("Animation completed");
-  };
-
   return (
     <div className="min-h-screen  ">
       <Navbar />
