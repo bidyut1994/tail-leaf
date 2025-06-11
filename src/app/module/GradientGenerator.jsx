@@ -75,10 +75,24 @@ export default function GradientGenerator() {
   console.log(from, via, to);
 
   return (
-    <div className="min-h-screen  flex flex-col items-center pt-8 pb-24   bg-[#222222]">
+    <div className="min-h-screen  flex flex-col items-center pt-8 pb-24  ">
       <div className="rounded-xl p-6 w-full max-w-5xl ">
-        <div className="flex gap-3 items-center mt-20 mb-5 text-emerald-600">
-          <BiFullscreen size="44" />
+        <div className="flex gap-3 items-center mb-5 text-emerald-400">
+          {/* <BiFullscreen size="44" /> */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-12 w-12 text-emerald-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+            />
+          </svg>
           <p className=" text-3xl font-bold  ">
             Generate Tailwind CSS Background Gradients
           </p>
@@ -247,7 +261,7 @@ export default function GradientGenerator() {
                     viewBox="0 0 16 16"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"
                     />
                     <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466" />
@@ -278,7 +292,7 @@ export default function GradientGenerator() {
               </span>
               <Tooltip>
                 <TooltipTrigger>
-                  <button
+                  <div
                     onClick={handleTailwindCopy}
                     className="p-1  bg-zinc-800 rounded transition-colors cursor-pointer"
                   >
@@ -321,7 +335,7 @@ export default function GradientGenerator() {
                         <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
                       </svg>
                     )}
-                  </button>
+                  </div>
                 </TooltipTrigger>
                 <TooltipContent side="right">
                   <p className="text-xs  ">Copy Tailwind class</p>
@@ -334,7 +348,7 @@ export default function GradientGenerator() {
               </span>
               <Tooltip>
                 <TooltipTrigger>
-                  <button
+                  <div
                     onClick={handleCssCopy}
                     className="p-1  bg-zinc-800 rounded transition-colors cursor-pointer"
                   >
@@ -377,7 +391,7 @@ export default function GradientGenerator() {
                         <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
                       </svg>
                     )}
-                  </button>
+                  </div>
                 </TooltipTrigger>
                 <TooltipContent side="right">
                   <p className="text-xs  ">Copy CSS gradient</p>
