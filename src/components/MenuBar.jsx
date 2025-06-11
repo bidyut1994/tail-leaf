@@ -3,12 +3,12 @@ import React from "react";
 const gradients = [
   {
     title: "Generate Gradient",
-    description: "Create beautiful gradient effects for your designs",
+    description: "Create beautiful background CSS gradient ",
     key: "gradient",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6 text-emerald-400"
+        className="h-8 w-8 text-emerald-700"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -29,7 +29,7 @@ const gradients = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6 text-emerald-400"
+        className="h-8 w-8 text-emerald-700"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -47,18 +47,35 @@ const gradients = [
 
 export default function MenuBar({ activeMenu, handleMenuClick }) {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex   items-center gap-4">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex   items-center gap-8 border-b-[.5px] border-emerald-100  pb-4">
       {gradients.map((gradient) => (
         <div
           key={gradient.key}
           onClick={() => handleMenuClick(gradient.key)}
-          className={`cursor-pointer ${
-            activeMenu === gradient.key ? "text-emerald-400" : "text-white"
-          } hover:text-emerald-400`}
+          className={`cursor-pointer border-[.5px] border-emerald-100 group  py-2 px-4 rounded-md ${
+            activeMenu === gradient.key
+              ? "border-emerald-400 text-emerald-400 bg-gradient-to-tl from-emerald-200 to-emerald-300"
+              : "text-white"
+          } hover:bg-gradient-to-tl from-emerald-100 to-emerald-200 `}
         >
           <div className="flex items-center gap-2">
-            {gradient.icon}
-            <span className="text-white">{gradient.title}</span>
+            <div className="w-12 h-12 flex items-center justify-center text-emerald-700">
+              {gradient.icon}
+            </div>
+            <div>
+              <p
+                className={`${
+                  activeMenu === gradient.key
+                    ? "text-emerald-700"
+                    : "text-white"
+                } text-lg font-bold group-hover:text-emerald-700`}
+              >
+                {gradient.title}
+              </p>{" "}
+              <p className="text-xs   text-emerald-700">
+                {gradient.description}
+              </p>
+            </div>
           </div>
         </div>
       ))}

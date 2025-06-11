@@ -1,8 +1,6 @@
 "use client";
 import react, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -27,17 +25,17 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b from-black via-black to-black">
       <Navbar />
       <div className="container mx-auto relative">
-        <div className="pt-20 mb-10">
+        <div className="pt-18 mb-2">
           <MenuBar activeMenu={activeMenu} handleMenuClick={handleMenuClick} />
         </div>
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
           {activeMenu === "gradient" ? (
             <motion.div
               key="gradient"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
+              transition={{ duration: 0.1, ease: "easeInOut" }}
             >
               <GradientGenerator />
             </motion.div>
@@ -47,7 +45,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
+              transition={{ duration: 0.1, ease: "easeInOut" }}
             >
               <GridGenerator />
             </motion.div>
