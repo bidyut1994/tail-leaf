@@ -6,7 +6,7 @@ export default function GridGenerator() {
       {" "}
       <div className="min-h-screen  flex flex-col items-center pt-8 pb-24  ">
         <div className="rounded-xl p-6 w-full max-w-5xl ">
-          <div className="flex gap-3 items-center mb-5 text-emerald-400">
+          <div className="flex gap-3 items-center mb-5 pb-3 border-zinc-200 text-emerald-400 border-b">
             {/* <BiFullscreen size="44" /> */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -24,6 +24,7 @@ export default function GridGenerator() {
             </svg>
             <p className=" text-xl font-bold  ">Generate Tailwind CSS Grid</p>
           </div>
+          <div></div>
         </div>
       </div>
     </div>
