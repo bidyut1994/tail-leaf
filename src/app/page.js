@@ -2,18 +2,24 @@
 import react, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import GradientGenerator from "./module/GradientGenerator";
 import GridGenerator from "./module/GridGenerator";
 
 export default function Home() {
-  const [activeMenu, setActiveMenu] = useState("gradient");
+  const [activeMenu, setActiveMenu] = useState(null);
   const router = useRouter();
-
+  const searchParams = useSearchParams();
   useEffect(() => {
-    router.push(`?menu="gradient"`);
-  }, []);
+    const menu = searchParams.get("menu");
+
+    if (menu) {
+      setActiveMenu(menu);
+    } else {
+      setActiveMenu("gradient");
+    }
+  }, [router]);
 
   const handleMenuClick = (menu) => {
     setActiveMenu(menu);

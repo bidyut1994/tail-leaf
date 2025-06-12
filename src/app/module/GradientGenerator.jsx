@@ -74,7 +74,7 @@ export default function GradientGenerator() {
 
   return (
     <div className="min-h-screen  flex flex-col items-center pt-8 pb-24  ">
-      <div className="rounded-xl p-6 w-full max-w-5xl ">
+      <div className="rounded-xl p-6 w-full max-w-6xl ">
         <div className="flex gap-3 items-center mb-5 text-emerald-400">
           {/* <BiFullscreen size="44" /> */}
           <svg
