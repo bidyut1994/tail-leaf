@@ -142,12 +142,16 @@ export default function GridGenerator() {
                 value={columns.toString()}
                 onValueChange={(val) => setColumns(Number(val))}
               >
-                <SelectTrigger className="  w-20 bg-white text-black">
+                <SelectTrigger className="  w-20  text-white">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
                   {[...Array(12)].map((_, i) => (
-                    <SelectItem key={i + 1} value={(i + 1).toString()}>
+                    <SelectItem
+                      className="cursor-pointer"
+                      key={i + 1}
+                      value={(i + 1).toString()}
+                    >
                       {i + 1}
                     </SelectItem>
                   ))}
@@ -160,12 +164,16 @@ export default function GridGenerator() {
                 value={rows.toString()}
                 onValueChange={(val) => setRows(Number(val))}
               >
-                <SelectTrigger className=" w-20 bg-white text-black">
+                <SelectTrigger className=" w-20 text-white  ">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
                   {[...Array(12)].map((_, i) => (
-                    <SelectItem key={i + 1} value={(i + 1).toString()}>
+                    <SelectItem
+                      className="cursor-pointer"
+                      key={i + 1}
+                      value={(i + 1).toString()}
+                    >
                       {i + 1}
                     </SelectItem>
                   ))}
@@ -178,12 +186,16 @@ export default function GridGenerator() {
                 value={gap.toString()}
                 onValueChange={(val) => setGap(Number(val))}
               >
-                <SelectTrigger className=" w-20 bg-white text-black">
+                <SelectTrigger className=" w-20 text-white  ">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
                   {[...Array(12)].map((_, i) => (
-                    <SelectItem key={i + 1} value={(i + 1).toString()}>
+                    <SelectItem
+                      className="cursor-pointer"
+                      key={i + 1}
+                      value={(i + 1).toString()}
+                    >
                       {i + 1}
                     </SelectItem>
                   ))}
