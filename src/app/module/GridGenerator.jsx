@@ -287,8 +287,8 @@ export default function GridGenerator() {
                     resizeItem(item.id, finalWidth, finalHeight);
                   }
                 }}
-                dragGrid={[cellWidth + gapPx, cellHeight + gapPx]}
-                resizeGrid={[cellWidth + gapPx, cellHeight + gapPx]}
+                dragGrid={[cellWidth + gapPx / 2, cellHeight + gapPx / 2]}
+                resizeGrid={[cellWidth + gapPx / 2, cellHeight + gapPx / 2]}
                 enableResizing={{ bottomRight: true }}
                 className="z-20 absolute bg-slate-800 border-2 border-emerald-400 rounded-md text-white flex items-center justify-center font-bold text-lg shadow-md p-1"
               >
