@@ -9,6 +9,14 @@ import GridGenerator from "./module/GridGenerator";
 import TextGradient from "./module/TextGradient";
 
 export default function Home() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <HomePage />
+    </Suspense>
+  );
+}
+
+function HomePage() {
   const [activeMenu, setActiveMenu] = useState(null);
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -28,7 +36,7 @@ export default function Home() {
   };
 
   return (
-    <Suspense fallback={<Loader />}>
+    <div>
       <div className="min-h-screen bg-gradient-to-b from-black via-black to-black">
         <Navbar activeMenu={activeMenu} handleMenuClick={handleMenuClick} />
         <div className="container mx-auto relative pt-28">
@@ -71,7 +79,7 @@ export default function Home() {
           </AnimatePresence>
         </div>
       </div>
-    </Suspense>
+    </div>
   );
 }
 
