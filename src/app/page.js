@@ -10,7 +10,13 @@ import TextGradient from "./module/TextGradient";
 
 export default function Home() {
   return (
-    <Suspense fallback={<Loader />}>
+    <Suspense
+      fallback={
+        <div className="flex justify-center items-center h-screen">
+          <Loader />
+        </div>
+      }
+    >
       <HomePage />
     </Suspense>
   );
