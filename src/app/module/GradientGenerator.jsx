@@ -402,8 +402,7 @@ export default function GradientGenerator() {
     </div>
   );
 }
-
-// Helper functions for CSS gradient
+ 
 function directionToCss(dir) {
   switch (dir) {
     case "to-r":

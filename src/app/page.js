@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import GradientGenerator from "./module/GradientGenerator";
 import GridGenerator from "./module/GridGenerator";
+import TextGradient from "./module/TextGradient";
 
 export default function Home() {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -50,6 +51,16 @@ export default function Home() {
               transition={{ duration: 0.1, ease: "easeInOut" }}
             >
               <GridGenerator />
+            </motion.div>
+          ) : activeMenu === "text" ? (
+            <motion.div
+              key="text"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.1, ease: "easeInOut" }}
+            >
+              <TextGradient />
             </motion.div>
           ) : (
             <div className="flex justify-center items-center h-screen">

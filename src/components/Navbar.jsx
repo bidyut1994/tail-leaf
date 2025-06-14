@@ -2,10 +2,10 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
+import { IoText } from "react-icons/io5";
 const gradients = [
   {
-    title: "Generate Gradient",
+    title: "Background Gradient",
     description: "Create beautiful background CSS gradient ",
     key: "gradient",
     icon: (
@@ -26,7 +26,7 @@ const gradients = [
     ),
   },
   {
-    title: "Generate Grid",
+    title: "Grid  ",
     description: "Create custom grid patterns and layouts",
     key: "grid",
     icon: (
@@ -46,6 +46,12 @@ const gradients = [
       </svg>
     ),
   },
+  // {
+  //   title: "Text Gradient",
+  //   description: "Create custom text gradient patterns and layouts",
+  //   key: "text",
+  //   icon: <IoText className="text-emerald-700" size={20} />,
+  // },
 ];
 
 export default function Navbar({ activeMenu, handleMenuClick }) {
